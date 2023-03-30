@@ -17,7 +17,7 @@
         android:gravity="right|center"
         android:inputType="textPersonName"
         android:text="0"
-        android:textSize="140dp" />
+        android:textSize="60dp" />
 
     <TableLayout
         android:layout_width="match_parent"
@@ -219,7 +219,7 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginRight="2dp"
-            android:layout_weight="1"
+            android:layout_weight="0.48"
             android:onClick="numberEvent"
             android:background="@color/amaranth"
             android:text="0"></androidx.appcompat.widget.AppCompatButton>
@@ -229,7 +229,7 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginRight="2dp"
-            android:layout_weight="1"
+            android:layout_weight="0.48"
             android:onClick="numberEvent"
             android:background="@color/amaranth"
             android:text="."></androidx.appcompat.widget.AppCompatButton>
@@ -239,7 +239,7 @@
             android:layout_width="73dp"
             android:layout_height="60dp"
             android:layout_marginRight="2dp"
-            android:layout_weight="1"
+            android:layout_weight="1.6"
             android:onClick="equalEvent"
             android:background="@color/orange"
             android:text="="></androidx.appcompat.widget.AppCompatButton>
