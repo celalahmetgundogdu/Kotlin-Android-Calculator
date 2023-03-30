@@ -1,0 +1,209 @@
+<html>
+<head>
+<title>gradlew</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #000000;}
+.s1 { color: #808000;}
+.s2 { color: #0000ff;}
+.s3 { color: #000080; font-weight: bold;}
+.s4 { color: #008000; font-weight: bold;}
+.s5 { color: #808080; font-style: italic;}
+.s6 { color: #000000;}
+.s7 { color: #008000;}
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+gradlew</font>
+</center></td></tr></table>
+<pre>#!/usr/bin/env sh
+
+<span class="s1"># 
+# Copyright </span><span class="s2">2015 </span>the original author <span class="s3">or </span>authors.
+<span class="s1"># 
+# Licensed </span>under the Apache License, Version <span class="s2">2.0 </span>(the <span class="s4">&quot;License&quot;</span>);
+<span class="s1"># you </span>may <span class="s3">not </span>use <span class="s3">this </span>file except in compliance with the License.
+<span class="s1"># You </span>may obtain a copy of the License at
+<span class="s1"># 
+#      https</span>:<span class="s5">//www.apache.org/licenses/LICENSE-2.0</span>
+<span class="s1"># 
+# Unless </span>required by applicable law <span class="s3">or </span>agreed to in writing, software
+<span class="s1"># distributed </span>under the License is distributed on an <span class="s4">&quot;AS IS&quot; </span>BASIS,
+<span class="s1"># WITHOUT </span>WARRANTIES OR CONDITIONS OF ANY KIND, either express <span class="s3">or </span>implied.
+<span class="s1"># See </span>the License <span class="s3">for </span>the specific language governing permissions <span class="s3">and</span>
+<span class="s1"># limitations </span>under the License.
+<span class="s1"># 
+</span>
+##############################################################################
+##
+##  Gradle start up script <span class="s3">for </span>UN*X
+##
+##############################################################################
+
+<span class="s1"># Attempt </span>to set APP_HOME
+<span class="s1"># Resolve </span>links: $0 may be a link
+PRG=<span class="s4">&quot;$0&quot;</span>
+<span class="s1"># Need </span><span class="s3">this for </span>relative symlinks.
+<span class="s3">while </span>[ -h <span class="s4">&quot;$PRG&quot; </span>] ; <span class="s3">do</span>
+    ls=`ls -ld <span class="s4">&quot;$PRG&quot;</span>`
+    link=`expr <span class="s4">&quot;$ls&quot; </span>: <span class="s4">'.*-&gt; </span><span class="s7">\(</span><span class="s4">.*</span><span class="s7">\)</span><span class="s4">$'</span>`
+    <span class="s3">if </span>expr <span class="s4">&quot;$link&quot; </span>: <span class="s4">'/.*' </span>&gt; /dev/null; then
+        PRG=<span class="s4">&quot;$link&quot;</span>
+    <span class="s3">else</span>
+        PRG=`dirname <span class="s4">&quot;$PRG&quot;</span>`<span class="s4">&quot;/$link&quot;</span>
+    fi
+done
+SAVED=<span class="s4">&quot;`pwd`&quot;</span>
+cd <span class="s4">&quot;`dirname </span><span class="s3">\&quot;</span><span class="s4">$PRG</span><span class="s3">\&quot;</span><span class="s4">`/&quot; </span>&gt;/dev/null
+APP_HOME=<span class="s4">&quot;`pwd -P`&quot;</span>
+cd <span class="s4">&quot;$SAVED&quot; </span>&gt;/dev/null
+
+APP_NAME=<span class="s4">&quot;Gradle&quot;</span>
+APP_BASE_NAME=`basename <span class="s4">&quot;$0&quot;</span>`
+
+<span class="s1"># Add </span><span class="s3">default </span>JVM options here. You can also use JAVA_OPTS <span class="s3">and </span>GRADLE_OPTS to pass JVM options to <span class="s3">this </span>script.
+DEFAULT_JVM_OPTS=<span class="s4">'&quot;-Xmx64m&quot; &quot;-Xms64m&quot;'</span>
+
+<span class="s1"># Use </span>the maximum available, <span class="s3">or </span>set MAX_FD != -<span class="s2">1 </span>to use that value.
+MAX_FD=<span class="s4">&quot;maximum&quot;</span>
+
+warn () {
+    echo <span class="s4">&quot;$*&quot;</span>
+}
+
+die () {
+    echo
+    echo <span class="s4">&quot;$*&quot;</span>
+    echo
+    exit <span class="s2">1</span>
+}
+
+<span class="s1"># OS </span>specific support (must be <span class="s4">'true' </span><span class="s3">or </span><span class="s4">'false'</span>).
+cygwin=<span class="s3">false</span>
+msys=<span class="s3">false</span>
+darwin=<span class="s3">false</span>
+nonstop=<span class="s3">false</span>
+<span class="s3">case </span><span class="s4">&quot;`uname`&quot; </span>in
+  CYGWIN* )
+    cygwin=<span class="s3">true</span>
+    ;;
+  Darwin* )
+    darwin=<span class="s3">true</span>
+    ;;
+  MINGW* )
+    msys=<span class="s3">true</span>
+    ;;
+  NONSTOP* )
+    nonstop=<span class="s3">true</span>
+    ;;
+esac
+
+CLASSPATH=$APP_HOME/gradle/wrapper/gradle-wrapper.jar
+
+
+<span class="s1"># Determine </span>the Java command to use to start the JVM.
+<span class="s3">if </span>[ -n <span class="s4">&quot;$JAVA_HOME&quot; </span>] ; then
+    <span class="s3">if </span>[ -x <span class="s4">&quot;$JAVA_HOME/jre/sh/java&quot; </span>] ; then
+        <span class="s1"># IBM</span><span class="s4">'s JDK on AIX uses strange locations for the executables</span>
+        JAVACMD=<span class="s4">&quot;$JAVA_HOME/jre/sh/java&quot;</span>
+    <span class="s3">else</span>
+        JAVACMD=<span class="s4">&quot;$JAVA_HOME/bin/java&quot;</span>
+    fi
+    <span class="s3">if </span>[ ! -x <span class="s4">&quot;$JAVACMD&quot; </span>] ; then
+        die <span class="s4">&quot;ERROR: JAVA_HOME is set to an invalid directory: $JAVA_HOME</span>
+
+Please set the JAVA_HOME variable in your environment to match the
+location of your Java installation.<span class="s4">&quot;</span>
+    fi
+<span class="s3">else</span>
+    JAVACMD=<span class="s4">&quot;java&quot;</span>
+    which java &gt;/dev/null <span class="s2">2</span>&gt;&amp;<span class="s2">1 </span>|| die <span class="s4">&quot;ERROR: JAVA_HOME is not set and no 'java' command could be found in your PATH.</span>
+
+Please set the JAVA_HOME variable in your environment to match the
+location of your Java installation.<span class="s4">&quot;</span>
+fi
+
+<span class="s1"># Increase </span>the maximum file descriptors <span class="s3">if </span>we can.
+<span class="s3">if </span>[ <span class="s4">&quot;$cygwin&quot; </span>= <span class="s4">&quot;false&quot; </span>-a <span class="s4">&quot;$darwin&quot; </span>= <span class="s4">&quot;false&quot; </span>-a <span class="s4">&quot;$nonstop&quot; </span>= <span class="s4">&quot;false&quot; </span>] ; then
+    MAX_FD_LIMIT=`ulimit -H -n`
+    <span class="s3">if </span>[ $? -eq <span class="s2">0 </span>] ; then
+        <span class="s3">if </span>[ <span class="s4">&quot;$MAX_FD&quot; </span>= <span class="s4">&quot;maximum&quot; </span>-o <span class="s4">&quot;$MAX_FD&quot; </span>= <span class="s4">&quot;max&quot; </span>] ; then
+            MAX_FD=<span class="s4">&quot;$MAX_FD_LIMIT&quot;</span>
+        fi
+        ulimit -n $MAX_FD
+        <span class="s3">if </span>[ $? -ne <span class="s2">0 </span>] ; then
+            warn <span class="s4">&quot;Could not set maximum file descriptor limit: $MAX_FD&quot;</span>
+        fi
+    <span class="s3">else</span>
+        warn <span class="s4">&quot;Could not query maximum file descriptor limit: $MAX_FD_LIMIT&quot;</span>
+    fi
+fi
+
+<span class="s1"># For </span>Darwin, add options to specify how the application appears in the dock
+<span class="s3">if </span>$darwin; then
+    GRADLE_OPTS=<span class="s4">&quot;$GRADLE_OPTS </span><span class="s3">\&quot;</span><span class="s4">-Xdock:name=$APP_NAME</span><span class="s3">\&quot; \&quot;</span><span class="s4">-Xdock:icon=$APP_HOME/media/gradle.icns</span><span class="s3">\&quot;</span><span class="s4">&quot;</span>
+fi
+
+<span class="s1"># For </span>Cygwin <span class="s3">or </span>MSYS, <span class="s3">switch </span>paths to Windows format before running java
+<span class="s3">if </span>[ <span class="s4">&quot;$cygwin&quot; </span>= <span class="s4">&quot;true&quot; </span>-o <span class="s4">&quot;$msys&quot; </span>= <span class="s4">&quot;true&quot; </span>] ; then
+    APP_HOME=`cygpath --path --mixed <span class="s4">&quot;$APP_HOME&quot;</span>`
+    CLASSPATH=`cygpath --path --mixed <span class="s4">&quot;$CLASSPATH&quot;</span>`
+
+    JAVACMD=`cygpath --unix <span class="s4">&quot;$JAVACMD&quot;</span>`
+
+    <span class="s1"># We </span>build the pattern <span class="s3">for </span>arguments to be converted via cygpath
+    ROOTDIRSRAW=`find -L / -maxdepth <span class="s2">1 </span>-mindepth <span class="s2">1 </span>-type d <span class="s2">2</span>&gt;/dev/null`
+    SEP=<span class="s4">&quot;&quot;</span>
+    <span class="s3">for </span>dir in $ROOTDIRSRAW ; <span class="s3">do</span>
+        ROOTDIRS=<span class="s4">&quot;$ROOTDIRS$SEP$dir&quot;</span>
+        SEP=<span class="s4">&quot;|&quot;</span>
+    done
+    OURCYGPATTERN=<span class="s4">&quot;(^($ROOTDIRS))&quot;</span>
+    <span class="s1"># Add </span>a user-defined pattern to the cygpath arguments
+    <span class="s3">if </span>[ <span class="s4">&quot;$GRADLE_CYGPATTERN&quot; </span>!= <span class="s4">&quot;&quot; </span>] ; then
+        OURCYGPATTERN=<span class="s4">&quot;$OURCYGPATTERN|($GRADLE_CYGPATTERN)&quot;</span>
+    fi
+    <span class="s1"># Now </span>convert the arguments - kludge to limit ourselves to /bin/sh
+    i=<span class="s2">0</span>
+    <span class="s3">for </span>arg in <span class="s4">&quot;$@&quot; </span>; <span class="s3">do</span>
+        CHECK=`echo <span class="s4">&quot;$arg&quot;</span>|egrep -c <span class="s4">&quot;$OURCYGPATTERN&quot; </span>-`
+        CHECK2=`echo <span class="s4">&quot;$arg&quot;</span>|egrep -c <span class="s4">&quot;^-&quot;</span>`                                 ### Determine <span class="s3">if </span>an option
+
+        <span class="s3">if </span>[ $CHECK -ne <span class="s2">0 </span>] &amp;&amp; [ $CHECK2 -eq <span class="s2">0 </span>] ; then                    ### Added a condition
+            eval `echo args$i`=`cygpath --path --ignore --mixed <span class="s4">&quot;$arg&quot;</span>`
+        <span class="s3">else</span>
+            eval `echo args$i`=<span class="s4">&quot;</span><span class="s3">\&quot;</span><span class="s4">$arg</span><span class="s3">\&quot;</span><span class="s4">&quot;</span>
+        fi
+        i=`expr $i + <span class="s2">1</span>`
+    done
+    <span class="s3">case </span>$i in
+        <span class="s2">0</span>) set -- ;;
+        <span class="s2">1</span>) set -- <span class="s4">&quot;$args0&quot; </span>;;
+        <span class="s2">2</span>) set -- <span class="s4">&quot;$args0&quot; &quot;$args1&quot; </span>;;
+        <span class="s2">3</span>) set -- <span class="s4">&quot;$args0&quot; &quot;$args1&quot; &quot;$args2&quot; </span>;;
+        <span class="s2">4</span>) set -- <span class="s4">&quot;$args0&quot; &quot;$args1&quot; &quot;$args2&quot; &quot;$args3&quot; </span>;;
+        <span class="s2">5</span>) set -- <span class="s4">&quot;$args0&quot; &quot;$args1&quot; &quot;$args2&quot; &quot;$args3&quot; &quot;$args4&quot; </span>;;
+        <span class="s2">6</span>) set -- <span class="s4">&quot;$args0&quot; &quot;$args1&quot; &quot;$args2&quot; &quot;$args3&quot; &quot;$args4&quot; &quot;$args5&quot; </span>;;
+        <span class="s2">7</span>) set -- <span class="s4">&quot;$args0&quot; &quot;$args1&quot; &quot;$args2&quot; &quot;$args3&quot; &quot;$args4&quot; &quot;$args5&quot; &quot;$args6&quot; </span>;;
+        <span class="s2">8</span>) set -- <span class="s4">&quot;$args0&quot; &quot;$args1&quot; &quot;$args2&quot; &quot;$args3&quot; &quot;$args4&quot; &quot;$args5&quot; &quot;$args6&quot; &quot;$args7&quot; </span>;;
+        <span class="s2">9</span>) set -- <span class="s4">&quot;$args0&quot; &quot;$args1&quot; &quot;$args2&quot; &quot;$args3&quot; &quot;$args4&quot; &quot;$args5&quot; &quot;$args6&quot; &quot;$args7&quot; &quot;$args8&quot; </span>;;
+    esac
+fi
+
+<span class="s1"># Escape </span>application args
+save () {
+    <span class="s3">for </span>i <span class="s3">do </span>printf %s\\n <span class="s4">&quot;$i&quot; </span>| sed <span class="s4">&quot;s/'/'</span><span class="s3">\\\\</span><span class="s4">''/g;1s/^/'/;</span><span class="s7">\$</span><span class="s4">s/</span><span class="s7">\$</span><span class="s4">/' </span><span class="s3">\\\\</span><span class="s4">/&quot; </span>; done
+    echo <span class="s4">&quot; &quot;</span>
+}
+APP_ARGS=`save <span class="s4">&quot;$@&quot;</span>`
+
+<span class="s1"># Collect </span>all arguments <span class="s3">for </span>the java command, following the shell quoting <span class="s3">and </span>substitution rules
+eval set -- $DEFAULT_JVM_OPTS $JAVA_OPTS $GRADLE_OPTS <span class="s4">&quot;</span><span class="s3">\&quot;</span><span class="s4">-Dorg.gradle.appname=$APP_BASE_NAME</span><span class="s3">\&quot;</span><span class="s4">&quot; </span>-classpath <span class="s4">&quot;</span><span class="s3">\&quot;</span><span class="s4">$CLASSPATH</span><span class="s3">\&quot;</span><span class="s4">&quot; </span>org.gradle.wrapper.GradleWrapperMain <span class="s4">&quot;$APP_ARGS&quot;</span>
+
+exec <span class="s4">&quot;$JAVACMD&quot; &quot;$@&quot;</span>
+</pre>
+</body>
+</html>
